@@ -27,7 +27,7 @@ const CpuPage = React.createClass({
             return <div>Fetching...</div>;
         }
 
-        var processList = processes.map(function (process) {
+        var processList = processes.map(process => {
             return <tr>
                 <td>{process.pid}</td>
                 <td>{process.name}</td>
