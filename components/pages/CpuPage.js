@@ -10,4 +10,4 @@ class CpuPage extends React.Component {
 
 }
 
-export default HomePage;
+export default CpuPage;

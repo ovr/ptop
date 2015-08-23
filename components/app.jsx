@@ -1,9 +1,11 @@
+
 import React from 'react';
 import Router from 'react-router';
+
 import { RouteHandler, Route, Navigation } from 'react-router';
 import { Nav, Navbar } from 'react-bootstrap';
 import { NavItemLink } from 'react-router-bootstrap';
-import { HomePage, AboutPage, ContactPage } from './pages';
+import { HomePage, CpuPage, MemoryPage, NetworkPage} from './pages';
 
 var remote = window.require('remote');
 var runtime = remote.require('./core/runtime');
@@ -55,7 +57,7 @@ const App = React.createClass({
 });
 
 var routes = (
-    <Route name="app" path="/" handler={App}>
+    <Route name="app" path="/" handler={HomePage}>
     <Route name="cpu" path="/" handler={CpuPage} />
     <Route name="Memory" handler={MemoryPage} />
     <Route name="Network" handler={NetworkPage} />

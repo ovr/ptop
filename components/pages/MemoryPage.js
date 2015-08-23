@@ -10,4 +10,4 @@ class MemoryPage extends React.Component {
 
 }
 
-export default HomePage;
+export default MemoryPage;

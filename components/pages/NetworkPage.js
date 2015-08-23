@@ -10,4 +10,4 @@ class NetworkPage extends React.Component {
 
 }
 
-export default HomePage;
+export default NetworkPage;
