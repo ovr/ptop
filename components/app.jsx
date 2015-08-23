@@ -8,30 +8,35 @@ import { NavItemLink } from 'react-router-bootstrap';
 import { HomePage, CpuPage, MemoryPage, NetworkPage} from './pages';
 
 var remote = window.require('remote');
-var runtime = remote.require('./core/runtime');
-
-var _routes = runtime.routes.map(function (r) {
-    var handler = window.require(r.handler);
-    return <Route key={r.route} name={r.route} handler={handler}/>;
-});
-
-var _navbar = runtime.routes.filter(function (r) {
-    return r.navbar;
-});
 
 const App = React.createClass({
     mixins: [ Navigation ],
 
     componentDidMount() {
-        var ipc = window.require('ipc');
-        ipc.on('transitionTo', function(routeName) {
-            //this.transitionTo(routeName, { the: 'params' }, { the: 'query' });
-            this.transitionTo(routeName);
-        }.bind(this));
+        //var ipc = window.require('ipc');
+        //ipc.on('transitionTo', function(routeName) {
+        //    //this.transitionTo(routeName, { the: 'params' }, { the: 'query' });
+        //    this.transitionTo(routeName);
+        //}.bind(this));
     },
 
     render() {
-        var links = _navbar.map(function (r) {
+        var navbar = [
+            {
+                route: "cpu",
+                text: "CPU"
+            },
+            {
+                route: "memory",
+                text: "Memory"
+            },
+            {
+                route: "network",
+                text: "Network"
+            }
+        ];
+
+        var links = navbar.map(function (r) {
             return (
                 <NavItemLink key={r.route} to={r.route}>{r.text}</NavItemLink>
             );
@@ -41,11 +46,6 @@ const App = React.createClass({
             <div>
                 <Navbar fixedTop fluid>
                 <Nav>
-                    <NavItemLink to="home">
-                        <i className="fa fa-lg fa-home"></i>
-                    </NavItemLink>
-                    <NavItemLink to="about">About</NavItemLink>
-                    <NavItemLink to="contact">Contact</NavItemLink>
                     {links}
                 </Nav>
                 </Navbar>
@@ -57,11 +57,11 @@ const App = React.createClass({
 });
 
 var routes = (
-    <Route name="app" path="/" handler={HomePage}>
-    <Route name="cpu" path="/" handler={CpuPage} />
-    <Route name="Memory" handler={MemoryPage} />
-    <Route name="Network" handler={NetworkPage} />
-    { _routes }
+    <Route name="app" path="/" handler={App}>
+        <Route name="home" path="/home" handler={HomePage} />
+        <Route name="cpu" path="/cpu" handler={CpuPage} />
+        <Route name="memory" path="/memory" handler={MemoryPage} />
+        <Route name="network" path="/network"  handler={NetworkPage} />
     </Route>
 );
 
