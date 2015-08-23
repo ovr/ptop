@@ -1,25 +1,32 @@
 import React from 'react';
+import ProccessManager from 'current-processes';
+import _ from 'lodash';
 
-class CpuPage extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            processes: [
-                {
-                    name: 'test',
-                    pid: 12345
-                }
-            ]
+const CpuPage = React.createClass({
+    getInitialState() {
+        return {
+            processes: []
         };
-    }
+    },
+
+    componentDidMount() {
+        ProccessManager.get(function (err, processes) {
+            //var sorted = _.sortBy(processes, 'cpu');
+            //var top5  = processes.reverse().splice(0, 100);
+
+            if (this.isMounted()) {
+                this.setState({processes: processes});
+            }
+        }.bind(this));
+    },
 
     render() {
         var processes = this.state.processes;
+        console.log(processes);
 
         var processList = processes.map(function (process) {
-            return <div>{process.name}</div>;
-        })
+            return <div>Name: {process.name}</div>;
+        });
 
         return (
             <div>
@@ -28,7 +35,6 @@ class CpuPage extends React.Component {
             </div>
         );
     }
-
-}
+});
 
 export default CpuPage;
