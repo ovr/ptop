@@ -5,6 +5,12 @@
 </head>
 <body></body>
 <script>
+    var link = document.createElement('link')
+    link.setAttribute('rel', 'stylesheet')
+    link.setAttribute('href', require('path').join(__dirname, 'bower_components', 'bootstrap', 'dist', 'css', 'bootstrap.css'))
+    document.head.appendChild(link)
+</script>
+<script>
     require('babel/register');
     require('./components/app.jsx');
 </script>

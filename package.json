@@ -11,6 +11,7 @@
   "devDependencies": {
     "asar": "^0.7.2",
     "babel": "^5.8.21",
+    "bower": "^1.4.1",
     "electron-debug": "^0.2.0",
     "electron-prebuilt": "^0.31.0",
     "gulp-atom-electron": "^0.16.0",
