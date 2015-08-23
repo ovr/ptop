@@ -17,6 +17,7 @@
     "gulp-atom-electron": "^0.16.0",
     "gulp-clean": "^0.3.1",
     "gulp-if": "^1.2.5",
+    "gulp-jshint": "^1.11.2",
     "gulp-sequence": "^0.4.1",
     "gulp-symdest": "^1.0.0",
     "react": "^0.13.3",
