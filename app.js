@@ -3,6 +3,7 @@ var app = require('app'),
     Menu = require('menu'),
     appMenu = require('./core/app-menu');
 
+require('electron-debug')();
 require('crash-reporter').start();
 
 var mainWindow = null;
@@ -16,8 +17,8 @@ app.on('window-all-closed', function () {
 
 app.on('ready', function () {
     mainWindow = new BrowserWindow({
-        width: 800,
-        height: 600
+        width: 1500,
+        height: 800
     });
 
     mainWindow.loadUrl('file://' + __dirname + '/index.html');
