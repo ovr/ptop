@@ -13,11 +13,11 @@ const App = React.createClass({
     mixins: [ Navigation ],
 
     componentDidMount() {
-        //var ipc = window.require('ipc');
-        //ipc.on('transitionTo', function(routeName) {
-        //    //this.transitionTo(routeName, { the: 'params' }, { the: 'query' });
-        //    this.transitionTo(routeName);
-        //}.bind(this));
+        var ipc = window.require('ipc');
+        ipc.on('transitionTo', function(routeName) {
+            //this.transitionTo(routeName, { the: 'params' }, { the: 'query' });
+            this.transitionTo(routeName);
+        }.bind(this));
     },
 
     render() {
