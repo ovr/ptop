@@ -1,7 +1,6 @@
 var app = require('app'),
     BrowserWindow = require('browser-window'),
-    Menu = require('menu'),
-    appMenu = require('./core/app-menu');
+    Menu = require('menu');
 
 require('electron-debug')();
 require('crash-reporter').start();
@@ -30,18 +29,28 @@ app.on('ready', function () {
 
     // Dock Menu (Mac)
     if (process.platform === 'darwin') {
-        var dockMenu = Menu.buildFromTemplate([
-            { label: 'New Window', click: function() { console.log('New Window'); } },
-            { label: 'New Window with Settings', submenu: [
-                { label: 'Basic' },
-                { label: 'Pro'},
-            ]},
-            { label: 'New Command...'},
-        ]);
-        app.dock.setMenu(dockMenu);
+        //var dockMenu = Menu.buildFromTemplate([
+        //    { label: 'New Window', click: function() { console.log('New Window'); } },
+        //    { label: 'New Window with Settings', submenu: [
+        //        { label: 'Basic' },
+        //        { label: 'Pro'},
+        //    ]},
+        //    { label: 'New Command...'},
+        //]);
+        //app.dock.setMenu(dockMenu);
     }
 
-    var template = appMenu.template;
+    var template = [
+        {
+            label: 'Activity Manager',
+            submenu: [
+                {
+                    label: 'About',
+                    selector: 'showAboutPanel'
+                }
+            ]
+        }
+    ];
     menu = Menu.buildFromTemplate(template);
 
     if (process.platform === 'darwin') {
