@@ -27,13 +27,7 @@ const CpuPage = React.createClass({
             return <div>Fetching...</div>;
         }
 
-        var processList = processes.map(process => {
-            return <tr>
-                <td>{process.pid}</td>
-                <td>{process.name}</td>
-                <td>{process.cpu}</td>
-            </tr>;
-        });
+        var processList = processes.map(this.printRow);
 
         return (
             <div className="page">
@@ -50,6 +44,19 @@ const CpuPage = React.createClass({
                     </tbody>
                 </Table>
             </div>
+        );
+    },
+
+    /**
+     * Print table row
+     */
+    printRow(process) {
+        return (
+            <tr>
+                <td>{process.pid}</td>
+                <td>{process.name}</td>
+                <td>{process.cpu}</td>
+            </tr>
         );
     }
 });
