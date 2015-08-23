@@ -12,8 +12,8 @@ const CpuPage = React.createClass({
 
     componentDidMount() {
         ProccessManager.get(function (err, processes) {
-            var sorted = _.sortBy(processes, 'cpu');
-            var top5  = processes.reverse().splice(0, 100);
+            processes = _.sortBy(processes, 'cpu');
+            processes  = processes.reverse().splice(0, 100);
 
             if (this.isMounted()) {
                 this.setState({processes: processes});
