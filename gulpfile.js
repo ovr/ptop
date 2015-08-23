@@ -88,7 +88,7 @@ gulp.task('package', function(done) {
     var iconFolderPath = './icons';
 
     return gulp.src(includedFiles).pipe(electron({
-        version: '0.30.0',
+        version: '0.31.0',
         platform: platform,
         arch: arch,
         // for Mac
