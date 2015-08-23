@@ -36,8 +36,7 @@ const CpuPage = React.createClass({
         });
 
         return (
-            <div>
-                <div>Cpu Page</div>
+            <div className="page">
                 <Table striped bordered condensed hover>
                     <thead>
                     <tr>

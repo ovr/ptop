@@ -4,7 +4,7 @@ class MemoryPage extends React.Component {
 
     render() {
         return (
-            <div>Memory Page</div>
+            <div className="page">Memory Page</div>
         );
     }
 

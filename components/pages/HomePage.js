@@ -4,7 +4,7 @@ class HomePage extends React.Component {
 
     render() {
         return (
-            <div>Home Page</div>
+            <div className="page">Home Page</div>
         );
     }
 

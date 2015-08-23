@@ -50,7 +50,7 @@ const App = React.createClass({
                 </Nav>
                 </Navbar>
 
-                <RouteHandler />
+                <RouteHandler/>
             </div>
         );
     }

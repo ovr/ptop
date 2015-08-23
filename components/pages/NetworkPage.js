@@ -4,7 +4,7 @@ class NetworkPage extends React.Component {
 
     render() {
         return (
-            <div>Network Page</div>
+            <div className="page">Network Page</div>
         );
     }
 
