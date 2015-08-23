@@ -27,8 +27,6 @@ const CpuPage = React.createClass({
             return <div>Fetching...</div>;
         }
 
-        var processList = processes.map(this.printRow);
-
         return (
             <div className="page">
                 <Table striped bordered condensed hover>
@@ -40,7 +38,7 @@ const CpuPage = React.createClass({
                     </tr>
                     </thead>
                     <tbody>
-                    {processList}
+                    {processes.map(this.printRow)}
                     </tbody>
                 </Table>
             </div>
