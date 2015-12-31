@@ -10,7 +10,7 @@
   "license": "MIT",
   "devDependencies": {
     "asar": "^0.7.2",
-    "babel": "^5.8.21",
+    "babel": "^6.3.26",
     "bower": "^1.4.1",
     "electron-debug": "^0.5.1",
     "electron-prebuilt": "^0.35.5",
